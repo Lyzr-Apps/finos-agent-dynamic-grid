@@ -1,0 +1,44 @@
+{
+  "agent_name": "Data Surgeon Agent",
+  "agent_id": "6985a6d5705117394b711969",
+  "test_message": "Raw transaction SMS data: 'Rs.450 debited from A/c XX1234 on 12-Jan-2025 at Swiggy for order delivery. Avl Bal Rs.15000', 'Your OTP is 123456 for login', 'Rs.2500 debited from A/c XX1234 on 15-Jan-2025 at Amazon. Avl Bal Rs.12500', 'Congratulations! You won a lottery', 'Rs.800 debited from A/c XX1234 on 18-Jan-2025 at Uber ride. Avl Bal Rs.11700'",
+  "expected_purpose": "data_cleaning",
+  "timestamp": "2026-02-06T08:33:37.349395",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "cleaned_transactions": [
+        {
+          "date": "2025-01-12",
+          "merchant": "Swiggy",
+          "amount": 450,
+          "currency": "INR"
+        },
+        {
+          "date": "2025-01-15",
+          "merchant": "Amazon",
+          "amount": 2500,
+          "currency": "INR"
+        },
+        {
+          "date": "2025-01-18",
+          "merchant": "Uber",
+          "amount": 800,
+          "currency": "INR"
+        }
+      ],
+      "summary": {
+        "total_entries": 5,
+        "cleaned_entries": 3,
+        "filtered_out": 2
+      }
+    },
+    "metadata": {
+      "agent_name": "Data Surgeon Agent",
+      "timestamp": "2024-06-15T09:25:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"cleaned_transactions\": [\n      {\n        \"date\": \"2025-01-12\",\n        \"merchant\": \"Swiggy\",\n        \"amount\": 450,\n        \"currency\": \"INR\"\n      },\n      {\n        \"date\": \"2025-01-15\",\n        \"merchant\": \"Amazon\",\n        \"amount\": 2500,\n        \"currency\": \"INR\"\n      },\n      {\n        \"date\": \"2025-01-18\",\n        \"merchant\": \"Uber\",\n        \"amount\": 800,\n        \"currency\": \"INR\"\n      }\n    ],\n    \"summary\": {\n      \"total_entries\": 5,\n      \"cleaned_entries\": 3,\n      \"filtered_out\": 2\n    }\n  },\n  \"metadata\": {\n    \"agent_name\": \"Data Surgeon Agent\",\n    \"timestamp\": \"2024-06-15T09:25:00Z\"\n  }\n}"
+}

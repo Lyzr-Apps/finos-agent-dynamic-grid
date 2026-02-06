@@ -1,0 +1,170 @@
+{
+  "status": "success",
+  "result": {
+    "workflow_status": "completed",
+    "dashboard_data": {
+      "financial_alignment_score": 70,
+      "total_transactions": 15,
+      "total_amount": 19570.59,
+      "category_summary": {
+        "survival": {
+          "amount": 4051.6,
+          "percentage": 21.23,
+          "count": 4
+        },
+        "lifestyle": {
+          "amount": 9518.99,
+          "percentage": 49.91,
+          "count": 8
+        },
+        "future": {
+          "amount": 6000.0,
+          "percentage": 28.86,
+          "count": 2
+        }
+      },
+      "top_merchants": [
+        {
+          "merchant": "Amazon",
+          "amount": 3829.99,
+          "count": 2
+        },
+        {
+          "merchant": "HDFC Bank ATM",
+          "amount": 5000.0,
+          "count": 1
+        },
+        {
+          "merchant": "Decathlon",
+          "amount": 1890.0,
+          "count": 1
+        },
+        {
+          "merchant": "Shoppers Stop",
+          "amount": 1750.0,
+          "count": 1
+        },
+        {
+          "merchant": "Big Bazaar",
+          "amount": 2145.5,
+          "count": 1
+        }
+      ],
+      "transactions": [
+        {
+          "date": "2024-06-01",
+          "merchant": "Amazon",
+          "amount": 1249.0,
+          "category": "Lifestyle",
+          "subcategory": "Online Shopping"
+        },
+        {
+          "date": "2024-06-02",
+          "merchant": "Flipkart",
+          "amount": 599.0,
+          "category": "Lifestyle",
+          "subcategory": "Online Shopping"
+        },
+        {
+          "date": "2024-06-03",
+          "merchant": "Big Bazaar",
+          "amount": 2145.5,
+          "category": "Survival",
+          "subcategory": "Groceries"
+        },
+        {
+          "date": "2024-06-04",
+          "merchant": "Uber",
+          "amount": 236.75,
+          "category": "Survival",
+          "subcategory": "Transportation"
+        },
+        {
+          "date": "2024-06-06",
+          "merchant": "Swiggy",
+          "amount": 350.0,
+          "category": "Lifestyle",
+          "subcategory": "Dining Out"
+        },
+        {
+          "date": "2024-06-07",
+          "merchant": "IRCTC",
+          "amount": 980.0,
+          "category": "Survival",
+          "subcategory": "Transportation"
+        },
+        {
+          "date": "2024-06-09",
+          "merchant": "Zomato",
+          "amount": 470.0,
+          "category": "Lifestyle",
+          "subcategory": "Dining Out"
+        },
+        {
+          "date": "2024-06-09",
+          "merchant": "Decathlon",
+          "amount": 1890.0,
+          "category": "Lifestyle",
+          "subcategory": "Shopping (Sportswear)"
+        },
+        {
+          "date": "2024-06-10",
+          "merchant": "Amazon",
+          "amount": 2580.99,
+          "category": "Lifestyle",
+          "subcategory": "Online Shopping"
+        },
+        {
+          "date": "2024-06-11",
+          "merchant": "Reliance Fresh",
+          "amount": 689.35,
+          "category": "Survival",
+          "subcategory": "Groceries"
+        },
+        {
+          "date": "2024-06-12",
+          "merchant": "Paytm",
+          "amount": 1000.0,
+          "category": "Future",
+          "subcategory": "Savings (Wallet top-up)"
+        },
+        {
+          "date": "2024-06-13",
+          "merchant": "HDFC Bank ATM",
+          "amount": 5000.0,
+          "category": "Future",
+          "subcategory": "Cash Withdrawal/Potential Savings"
+        },
+        {
+          "date": "2024-06-14",
+          "merchant": "Shoppers Stop",
+          "amount": 1750.0,
+          "category": "Lifestyle",
+          "subcategory": "Shopping (Clothing)"
+        },
+        {
+          "date": "2024-06-15",
+          "merchant": "BookMyShow",
+          "amount": 530.0,
+          "category": "Lifestyle",
+          "subcategory": "Entertainment"
+        }
+      ]
+    },
+    "query_response": "",
+    "insights": [
+      "Spending is highly concentrated in the Lifestyle category, making up nearly half of overall expenses.",
+      "Survival spending is significantly below the recommended 50%, indicating possible under-investment in essentials or a large Lifestyle allocation.",
+      "Future-oriented transactions (savings or withdrawals) are close to the ideal target (30%).",
+      "Frequent purchases at online retailers suggest discretionary habits; reassessing these may provide savings capacity."
+    ]
+  },
+  "metadata": {
+    "agent_name": "FinOS Manager Agent",
+    "timestamp": "2024-06-14T12:10:00Z",
+    "sub_agents_used": [
+      "Data Surgeon Agent",
+      "Strategist Agent"
+    ]
+  }
+}

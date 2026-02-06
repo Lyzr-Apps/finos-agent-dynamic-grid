@@ -1,0 +1,65 @@
+{
+  "workflow_name": "FinOS Financial Intelligence Platform",
+  "workflow_type": "Manager-Subagent",
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "CSV Upload",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "finos_manager",
+      "type": "Agent",
+      "label": "FinOS Manager Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985a70a301c62c7ca2c7e05"
+    },
+    {
+      "id": "data_surgeon",
+      "type": "Agent",
+      "label": "Data Surgeon Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985a6d5705117394b711969"
+    },
+    {
+      "id": "strategist",
+      "type": "Agent",
+      "label": "Strategist Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985a6ea705117394b71196a"
+    },
+    {
+      "id": "output_node",
+      "type": "Output",
+      "label": "Dashboard & Chat",
+      "nodeCategory": "end"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "finos_manager"
+    },
+    {
+      "source": "finos_manager",
+      "target": "data_surgeon"
+    },
+    {
+      "source": "finos_manager",
+      "target": "strategist"
+    },
+    {
+      "source": "data_surgeon",
+      "target": "finos_manager"
+    },
+    {
+      "source": "strategist",
+      "target": "finos_manager"
+    },
+    {
+      "source": "finos_manager",
+      "target": "output_node"
+    }
+  ]
+}

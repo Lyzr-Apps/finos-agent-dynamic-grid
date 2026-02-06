@@ -1,0 +1,47 @@
+{
+  "agent_name": "FinOS Manager Agent",
+  "agent_id": "6985a70a301c62c7ca2c7e05",
+  "agent_purpose": "financial_orchestration",
+  "description": "Schema for FinOS Manager Agent that orchestrates workflow and provides dashboard data with natural language query interface",
+  "response_schema": {
+    "status": "string (success|error)",
+    "result": {
+      "response": "string",
+      "action_taken": "string (optional)",
+      "data": "object (optional, any structured data)",
+      "suggestions": [
+        "string (optional)"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string (ISO)"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "response": "I've completed the task you requested",
+      "action_taken": "Processed the input and generated output",
+      "data": {
+        "key": "value"
+      },
+      "suggestions": [
+        "You might also want to try X"
+      ]
+    },
+    "metadata": {
+      "agent_name": "FinOS Manager Agent",
+      "timestamp": "2025-01-15T10:30:00Z"
+    }
+  },
+  "is_actual_tested": false,
+  "test_timestamp": "2026-02-06T08:34:42.911292",
+  "test_message_used": "Hello, provide a sample response",
+  "raw_test_response": "```json\n{\n  \"status\": \"success\",\n  \"result\": {\n    \"workflow_status\": \"completed\",\n    \"dashboard_data\": {\n      \"financial_alignment_score\": 78,\n      \"total_transactions\": 120,\n      \"total_amount\": 98543.50,\n      \"category_summary\": {\n        \"survival\": {\"amount\": 40250.25, \"percentage\": 40.9, \"count\": 60},\n        \"lifestyle\": {\"amount\": 34500.00, \"percentage\": 35.0, \"count\": 38},\n        \"future\": {\"amount\": 23793.25, \"percentage\": 24.1, \"count\": 22}\n      },\n      \"top_merchants\": [\n        {\"merchant\": \"Amazon\", \"amount\": 13000.50, \"count\": 8},\n        {\"merchant\": \"Swiggy\", \"amount\": 7600.75, \"count\": 12},\n        {\"merchant\": \"Big Bazaar\", \"amount\": 8900.00, \"count\": 5}\n      ],\n      \"transactions\": [\n        {\n          \"date\": \"2024-05-15\",\n          \"merchant\": \"Amazon\",\n          \"amount\": 2500.00,\n          \"category\": \"lifestyle\",\n          \"score\": 7\n        },\n        {\n          \"date\": \"2024-05-12\",\n          \"merchant\": \"Swiggy\",\n          \"amount\": 525.50,\n          \"category\": \"survival\",\n          \"score\": 6\n        }\n        // ...more transactions\n      ]\n    },\n    \"query_response\": \"This is a sample response. Please provide your transaction data for actual analysis or ask a specific question about your spending.\",\n    \"insights\": [\n      \"You are spending a balanced amount across categories, but could shift a small portion from lifestyle to future savings.\",\n      \"Amazon and Swiggy are your top merchants\u2014consider reviewing recurring orders on these platforms.\",\n      \"Survival expenses constitute the largest portion of your spending, followed by lifestyle and future allocations.\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"FinOS Manager Agent\",\n    \"timestamp\": \"2024-06-11T15:03:29Z\",\n    \"sub_agents_used\": [\"Data Surgeon Agent\", \"Strategist Agent\"]\n  }\n}\n```",
+  "test_error": "Response not valid JSON: Expecting ',' delimiter: line 34 column 9 (char 1060)",
+  "actual_test_response": {
+    "raw_text": "```json\n{\n  \"status\": \"success\",\n  \"result\": {\n    \"workflow_status\": \"completed\",\n    \"dashboard_data\": {\n      \"financial_alignment_score\": 70,\n      \"total_transactions\": 15,\n      \"total_amount\": 19570.59,\n      \"category_summary\": {\n        \"survival\": {\"amount\": 4051.6, \"percentage\": 21.23, \"count\": 4},\n        \"lifestyle\": {\"amount\": 9518.99, \"percentage\": 49.91, \"count\": 8},\n        \"future\": {\"amount\": 6000.0, \"percentage\": 28.86, \"count\": 2}\n      },\n      \"top_merchants\": [\n        {\"merchant\": \"Amazon\", \"amount\": 3829.99, \"count\": 2},\n        {\"merchant\": \"HDFC Bank ATM\", \"amount\": 5000.0, \"count\": 1},\n        {\"merchant\": \"Decathlon\", \"amount\": 1890.0, \"count\": 1},\n        {\"merchant\": \"Shoppers Stop\", \"amount\": 1750.0, \"count\": 1},\n        {\"merchant\": \"Big Bazaar\", \"amount\": 2145.5, \"count\": 1}\n      ],\n      \"transactions\": [\n        {\"date\": \"2024-06-01\", \"merchant\": \"Amazon\", \"amount\": 1249.0, \"category\": \"Lifestyle\", \"subcategory\": \"Online Shopping\"},\n        {\"date\": \"2024-06-02\", \"merchant\": \"Flipkart\", \"amount\": 599.0, \"category\": \"Lifestyle\", \"subcategory\": \"Online Shopping\"},\n        {\"date\": \"2024-06-03\", \"merchant\": \"Big Bazaar\", \"amount\": 2145.5, \"category\": \"Survival\", \"subcategory\": \"Groceries\"},\n        {\"date\": \"2024-06-04\", \"merchant\": \"Uber\", \"amount\": 236.75, \"category\": \"Survival\", \"subcategory\": \"Transportation\"},\n        {\"date\": \"2024-06-06\", \"merchant\": \"Swiggy\", \"amount\": 350.0, \"category\": \"Lifestyle\", \"subcategory\": \"Dining Out\"},\n        {\"date\": \"2024-06-07\", \"merchant\": \"IRCTC\", \"amount\": 980.0, \"category\": \"Survival\", \"subcategory\": \"Transportation\"},\n        {\"date\": \"2024-06-09\", \"merchant\": \"Zomato\", \"amount\": 470.0, \"category\": \"Lifestyle\", \"subcategory\": \"Dining Out\"},\n        {\"date\": \"2024-06-09\", \"merchant\": \"Decathlon\", \"amount\": 1890.0, \"category\": \"Lifestyle\", \"subcategory\": \"Shopping (Sportswear)\"},\n        {\"date\": \"2024-06-10\", \"merchant\": \"Amazon\", \"amount\": 2580.99, \"category\": \"Lifestyle\", \"subcategory\": \"Online Shopping\"},\n        {\"date\": \"2024-06-11\", \"merchant\": \"Reliance Fresh\", \"amount\": 689.35, \"category\": \"Survival\", \"subcategory\": \"Groceries\"},\n        {\"date\": \"2024-06-12\", \"merchant\": \"Paytm\", \"amount\": 1000.0, \"category\": \"Future\", \"subcategory\": \"Savings (Wallet top-up)\"},\n        {\"date\": \"2024-06-13\", \"merchant\": \"HDFC Bank ATM\", \"amount\": 5000.0, \"category\": \"Future\", \"subcategory\": \"Cash Withdrawal/Potential Savings\"},\n        {\"date\": \"2024-06-14\", \"merchant\": \"Shoppers Stop\", \"amount\": 1750.0, \"category\": \"Lifestyle\", \"subcategory\": \"Shopping (Clothing)\"},\n        {\"date\": \"2024-06-15\", \"merchant\": \"BookMyShow\", \"amount\": 530.0, \"category\": \"Lifestyle\", \"subcategory\": \"Entertainment\"}\n      ]\n    },\n    \"query_response\": \"\",\n    \"insights\": [\n      \"Spending is highly concentrated in the Lifestyle category, making up nearly half of overall expenses.\",\n      \"Survival spending is significantly below the recommended 50%, indicating possible under-investment in essentials or a large Lifestyle allocation.\",\n      \"Future-oriented transactions (savings or withdrawals) are close to the ideal target (30%).\",\n      \"Frequent purchases at online retailers suggest discretionary habits; reassessing these may provide savings capacity.\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"FinOS Manager Agent\",\n    \"timestamp\": \"2024-06-14T12:10:00Z\",\n    \"sub_agents_used\": [\"Data Surgeon Agent\", \"Strategist Agent\"]\n  }\n}\n```"
+  },
+  "test_passed": false
+}

@@ -1,0 +1,34 @@
+{
+  "status": "success",
+  "result": {
+    "cleaned_transactions": [
+      {
+        "date": "2025-01-12",
+        "merchant": "Swiggy",
+        "amount": 450,
+        "currency": "INR"
+      },
+      {
+        "date": "2025-01-15",
+        "merchant": "Amazon",
+        "amount": 2500,
+        "currency": "INR"
+      },
+      {
+        "date": "2025-01-18",
+        "merchant": "Uber",
+        "amount": 800,
+        "currency": "INR"
+      }
+    ],
+    "summary": {
+      "total_entries": 5,
+      "cleaned_entries": 3,
+      "filtered_out": 2
+    }
+  },
+  "metadata": {
+    "agent_name": "Data Surgeon Agent",
+    "timestamp": "2024-06-15T09:25:00Z"
+  }
+}

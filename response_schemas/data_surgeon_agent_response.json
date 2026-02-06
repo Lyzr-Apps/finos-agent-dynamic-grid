@@ -1,0 +1,100 @@
+{
+  "agent_name": "Data Surgeon Agent",
+  "agent_id": "6985a6d5705117394b711969",
+  "agent_purpose": "data_cleaning",
+  "description": "Schema for Data Surgeon Agent that cleans transaction CSV data and extracts Date, Merchant, and Amount fields",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "cleaned_transactions": [
+        {
+          "date": "string",
+          "merchant": "string",
+          "amount": "number",
+          "currency": "string"
+        }
+      ],
+      "summary": {
+        "total_entries": "number",
+        "cleaned_entries": "number",
+        "filtered_out": "number"
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "cleaned_transactions": [
+        {
+          "date": "2025-01-12",
+          "merchant": "Swiggy",
+          "amount": 450,
+          "currency": "INR"
+        },
+        {
+          "date": "2025-01-15",
+          "merchant": "Amazon",
+          "amount": 2500,
+          "currency": "INR"
+        },
+        {
+          "date": "2025-01-18",
+          "merchant": "Uber",
+          "amount": 800,
+          "currency": "INR"
+        }
+      ],
+      "summary": {
+        "total_entries": 5,
+        "cleaned_entries": 3,
+        "filtered_out": 2
+      }
+    },
+    "metadata": {
+      "agent_name": "Data Surgeon Agent",
+      "timestamp": "2024-06-15T09:25:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T08:33:37.349901",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "cleaned_transactions": [
+        {
+          "date": "2025-01-12",
+          "merchant": "Swiggy",
+          "amount": 450,
+          "currency": "INR"
+        },
+        {
+          "date": "2025-01-15",
+          "merchant": "Amazon",
+          "amount": 2500,
+          "currency": "INR"
+        },
+        {
+          "date": "2025-01-18",
+          "merchant": "Uber",
+          "amount": 800,
+          "currency": "INR"
+        }
+      ],
+      "summary": {
+        "total_entries": 5,
+        "cleaned_entries": 3,
+        "filtered_out": 2
+      }
+    },
+    "metadata": {
+      "agent_name": "Data Surgeon Agent",
+      "timestamp": "2024-06-15T09:25:00Z"
+    }
+  },
+  "test_passed": true
+}

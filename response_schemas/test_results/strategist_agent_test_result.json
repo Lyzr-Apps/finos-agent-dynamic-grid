@@ -1,0 +1,84 @@
+{
+  "agent_name": "Strategist Agent",
+  "agent_id": "6985a6ea705117394b71196a",
+  "test_message": "Cleaned transactions: [{'date': '2025-01-12', 'merchant': 'Swiggy', 'amount': 450}, {'date': '2025-01-15', 'merchant': 'Amazon', 'amount': 2500}, {'date': '2025-01-18', 'merchant': 'Uber', 'amount': 800}, {'date': '2025-01-20', 'merchant': 'DMart Grocery', 'amount': 3500}, {'date': '2025-01-22', 'merchant': 'SIP Mutual Fund', 'amount': 5000}]",
+  "expected_purpose": "categorization_and_scoring",
+  "timestamp": "2026-02-06T08:33:55.076786",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "categorized_transactions": [
+        {
+          "date": "2025-01-12",
+          "merchant": "Swiggy",
+          "amount": 450,
+          "category": "Lifestyle",
+          "subcategory": "Dining Out"
+        },
+        {
+          "date": "2025-01-15",
+          "merchant": "Amazon",
+          "amount": 2500,
+          "category": "Lifestyle",
+          "subcategory": "Shopping"
+        },
+        {
+          "date": "2025-01-18",
+          "merchant": "Uber",
+          "amount": 800,
+          "category": "Survival",
+          "subcategory": "Transportation"
+        },
+        {
+          "date": "2025-01-20",
+          "merchant": "DMart Grocery",
+          "amount": 3500,
+          "category": "Survival",
+          "subcategory": "Groceries"
+        },
+        {
+          "date": "2025-01-22",
+          "merchant": "SIP Mutual Fund",
+          "amount": 5000,
+          "category": "Future",
+          "subcategory": "Investments"
+        }
+      ],
+      "category_breakdown": {
+        "survival": {
+          "total_amount": 4300,
+          "percentage": 33.59,
+          "transaction_count": 2
+        },
+        "lifestyle": {
+          "total_amount": 2950,
+          "percentage": 23.03,
+          "transaction_count": 2
+        },
+        "future": {
+          "total_amount": 5000,
+          "percentage": 39.06,
+          "transaction_count": 1
+        }
+      },
+      "financial_alignment_score": 87,
+      "insights": [
+        "Your spending is relatively well balanced, with a healthy focus on future investments (39.06%).",
+        "Survival expenses are slightly below the ideal 50%, which may indicate efficient management or lower essential costs this month.",
+        "Lifestyle spending accounts for about 23% of your total expenditures, just above the ideal allocation."
+      ],
+      "recommendations": [
+        "Maintain or gradually increase your contributions to the Future category to keep securing your long-term financial health.",
+        "Evaluate if any Lifestyle expenses can be reduced or optimized, especially discretionary shopping.",
+        "Regularly review your Survival expenses to ensure all essentials are adequately covered without excess spending."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Strategist Agent",
+      "timestamp": "2025-01-22T10:00:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"categorized_transactions\": [\n      {\n        \"date\": \"2025-01-12\",\n        \"merchant\": \"Swiggy\",\n        \"amount\": 450,\n        \"category\": \"Lifestyle\",\n        \"subcategory\": \"Dining Out\"\n      },\n      {\n        \"date\": \"2025-01-15\",\n        \"merchant\": \"Amazon\",\n        \"amount\": 2500,\n        \"category\": \"Lifestyle\",\n        \"subcategory\": \"Shopping\"\n      },\n      {\n        \"date\": \"2025-01-18\",\n        \"merchant\": \"Uber\",\n        \"amount\": 800,\n        \"category\": \"Survival\",\n        \"subcategory\": \"Transportation\"\n      },\n      {\n        \"date\": \"2025-01-20\",\n        \"merchant\": \"DMart Grocery\",\n        \"amount\": 3500,\n        \"category\": \"Survival\",\n        \"subcategory\": \"Groceries\"\n      },\n      {\n        \"date\": \"2025-01-22\",\n        \"merchant\": \"SIP Mutual Fund\",\n        \"amount\": 5000,\n        \"category\": \"Future\",\n        \"subcategory\": \"Investments\"\n      }\n    ],\n    \"category_breakdown\": {\n      \"survival\": {\n        \"total_amount\": 4300,\n        \"percentage\": 33.59,\n        \"transaction_count\": 2\n      },\n      \"lifestyle\": {\n        \"total_amount\": 2950,\n        \"percentage\": 23.03,\n        \"transaction_count\": 2\n      },\n      \"future\": {\n        \"total_amount\": 5000,\n        \"percentage\": 39.06,\n        \"transaction_count\": 1\n      }\n    },\n    \"financial_alignment_score\": 87,\n    \"insights\": [\n      \"Your spending is relatively well balanced, with a healthy focus on future investments (39.06%).\",\n      \"Survival expenses are slightly below the ideal 50%, which may indicate efficient management or lower essential costs this month.\",\n      \"Lifestyle spending accounts for about 23% of your total expenditures, just above the ideal allocation.\"\n    ],\n    \"recommendations\": [\n      \"Maintain or gradually increase your contributions to the Future category to keep securing your long-term financial health.\",\n      \"Evaluate if any Lifestyle expenses can be reduced or optimized, especially discretionary shopping.\",\n      \"Regularly review your Survival expenses to ensure all essentials are adequately covered without excess spending.\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"Strategist Agent\",\n    \"timestamp\": \"2025-01-22T10:00:00Z\"\n  }\n}"
+}
