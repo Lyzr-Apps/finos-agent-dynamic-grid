@@ -8,11 +8,11 @@ import { Loader2, Upload, Send, FileText } from 'lucide-react'
 import { callAIAgent } from '@/lib/aiAgent'
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts'
 
-// TypeScript interfaces from test responses
+// TypeScript interfaces from test responses - UPGRADED
 interface CategorySummary {
-  amount: number
+  total_amount: number
   percentage: number
-  count: number
+  transaction_count: number
 }
 
 interface Transaction {
@@ -23,10 +23,40 @@ interface Transaction {
   subcategory: string
 }
 
-interface TopMerchant {
+interface MerchantBreakdown {
   merchant: string
-  amount: number
-  count: number
+  category: string
+  total_amount: number
+  transaction_count: number
+  percentage_of_category: number
+  insights: string
+}
+
+interface CutBackOpportunity {
+  area: string
+  current_spend: number
+  recommended_spend: number
+  potential_savings: number
+  actionable_advice: string
+}
+
+interface HabitAudit {
+  impulsive_purchases: {
+    count: number
+    total_amount: number
+    description: string
+  }
+  high_cost_dining: {
+    count: number
+    total_amount: number
+    description: string
+  }
+  subscription_analysis: {
+    total_subscriptions: number
+    monthly_cost: number
+    redundant_subscriptions: string[]
+  }
+  cut_back_opportunities: CutBackOpportunity[]
 }
 
 interface DashboardData {
@@ -34,12 +64,18 @@ interface DashboardData {
   total_transactions: number
   total_amount: number
   category_summary: {
-    survival: CategorySummary
-    lifestyle: CategorySummary
-    future: CategorySummary
+    dining: CategorySummary
+    shopping: CategorySummary
+    bill_payments: CategorySummary
+    travel: CategorySummary
+    investments: CategorySummary
+    others: CategorySummary
   }
-  top_merchants: TopMerchant[]
+  merchant_breakdown: MerchantBreakdown[]
+  habit_audit: HabitAudit
   transactions: Transaction[]
+  insights: string[]
+  recommendations: string[]
 }
 
 interface ManagerAgentResponse {
@@ -188,14 +224,30 @@ export default function Home() {
     return '#ff5252'
   }
 
-  // Chart data for donut
+  // Chart data for donut - UPGRADED with granular categories
   const getChartData = () => {
     if (!dashboardData) return []
     return [
-      { name: 'Survival', value: dashboardData.category_summary.survival.percentage, color: '#1a237e' },
-      { name: 'Lifestyle', value: dashboardData.category_summary.lifestyle.percentage, color: '#00bfa5' },
-      { name: 'Future', value: dashboardData.category_summary.future.percentage, color: '#5e35b1' },
+      { name: 'Dining', value: dashboardData.category_summary.dining.percentage, color: '#ff6b6b' },
+      { name: 'Shopping', value: dashboardData.category_summary.shopping.percentage, color: '#4ecdc4' },
+      { name: 'Bill Payments', value: dashboardData.category_summary.bill_payments.percentage, color: '#45b7d1' },
+      { name: 'Travel', value: dashboardData.category_summary.travel.percentage, color: '#96ceb4' },
+      { name: 'Investments', value: dashboardData.category_summary.investments.percentage, color: '#1a237e' },
+      { name: 'Others', value: dashboardData.category_summary.others.percentage, color: '#95a5a6' },
     ]
+  }
+
+  // Get category color
+  const getCategoryColor = (category: string): string => {
+    const colors: { [key: string]: string } = {
+      dining: '#ff6b6b',
+      shopping: '#4ecdc4',
+      bill_payments: '#45b7d1',
+      travel: '#96ceb4',
+      investments: '#1a237e',
+      others: '#95a5a6'
+    }
+    return colors[category.toLowerCase().replace(' ', '_')] || '#95a5a6'
   }
 
   return (
@@ -423,26 +475,27 @@ export default function Home() {
                         </ResponsiveContainer>
                       </div>
 
-                      {/* Category Cards */}
-                      <div className="space-y-3">
+                      {/* Category Cards - UPGRADED */}
+                      <div className="space-y-2 max-h-64 overflow-y-auto">
                         {Object.entries(dashboardData.category_summary).map(([key, data]) => (
                           <div
                             key={key}
-                            className="bg-gray-50 p-4 rounded-lg border border-gray-200"
+                            className="bg-gray-50 p-3 rounded-lg border-l-4"
+                            style={{ borderLeftColor: getCategoryColor(key) }}
                           >
                             <div className="flex justify-between items-start">
                               <div>
-                                <h4 className="font-semibold text-gray-900 capitalize">
-                                  {key}
+                                <h4 className="font-semibold text-gray-900 capitalize text-sm">
+                                  {key.replace('_', ' ')}
                                 </h4>
-                                <p className="text-xs text-gray-600">{data.count} transactions</p>
+                                <p className="text-xs text-gray-600">{data.transaction_count} transactions</p>
                               </div>
                               <div className="text-right">
-                                <p className="font-bold text-gray-900">
-                                  ₹{data.amount.toLocaleString('en-IN')}
+                                <p className="font-bold text-gray-900 text-sm">
+                                  ₹{data.total_amount.toLocaleString('en-IN')}
                                 </p>
-                                <p className="text-sm text-gray-600">
-                                  {data.percentage.toFixed(2)}%
+                                <p className="text-xs text-gray-600">
+                                  {data.percentage.toFixed(1)}%
                                 </p>
                               </div>
                             </div>
@@ -453,27 +506,143 @@ export default function Home() {
                   </CardContent>
                 </Card>
 
-                {/* Top Merchants */}
-                <Card className="border-2 border-gray-200">
+                {/* Merchant Breakdown - NEW UPGRADED FEATURE */}
+                <Card className="border-2 border-[#00bfa5]">
                   <CardHeader>
-                    <CardTitle>Top Merchants</CardTitle>
+                    <CardTitle className="text-[#1a237e]">Merchant Deep-Dive Analysis</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-3">
-                      {dashboardData.top_merchants.slice(0, 5).map((merchant, idx) => (
+                    <div className="space-y-4">
+                      {dashboardData.merchant_breakdown.slice(0, 8).map((merchant, idx) => (
                         <div
                           key={idx}
-                          className="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
+                          className="border-l-4 bg-gray-50 p-4 rounded-lg"
+                          style={{ borderLeftColor: getCategoryColor(merchant.category) }}
                         >
-                          <div>
-                            <p className="font-medium text-gray-900">{merchant.merchant}</p>
-                            <p className="text-xs text-gray-600">{merchant.count} transactions</p>
+                          <div className="flex justify-between items-start mb-2">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-1">
+                                <p className="font-bold text-gray-900">{merchant.merchant}</p>
+                                <span
+                                  className="px-2 py-0.5 text-xs rounded-full text-white"
+                                  style={{ backgroundColor: getCategoryColor(merchant.category) }}
+                                >
+                                  {merchant.category}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-4 text-xs text-gray-600">
+                                <span>{merchant.transaction_count} transactions</span>
+                                <span>{merchant.percentage_of_category.toFixed(1)}% of {merchant.category}</span>
+                              </div>
+                            </div>
+                            <p className="font-bold text-[#1a237e] text-lg">
+                              ₹{merchant.total_amount.toLocaleString('en-IN')}
+                            </p>
                           </div>
-                          <p className="font-bold text-[#1a237e]">
-                            ₹{merchant.amount.toLocaleString('en-IN')}
+                          <p className="text-sm text-gray-700 italic bg-white p-2 rounded border-l-2 border-[#00bfa5]">
+                            {merchant.insights}
                           </p>
                         </div>
                       ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Habit Audit - NEW UPGRADED FEATURE */}
+                <Card className="border-2 border-orange-400">
+                  <CardHeader>
+                    <CardTitle className="text-orange-600">Spending Habit Audit</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {/* Impulsive Purchases */}
+                      <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-semibold text-orange-700">Impulsive Purchases</h4>
+                          <div className="text-right">
+                            <p className="font-bold text-orange-700">
+                              ₹{dashboardData.habit_audit.impulsive_purchases.total_amount.toLocaleString('en-IN')}
+                            </p>
+                            <p className="text-xs text-orange-600">
+                              {dashboardData.habit_audit.impulsive_purchases.count} purchases
+                            </p>
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-700">
+                          {dashboardData.habit_audit.impulsive_purchases.description}
+                        </p>
+                      </div>
+
+                      {/* High Cost Dining */}
+                      <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-semibold text-red-700">High-Cost Dining</h4>
+                          <div className="text-right">
+                            <p className="font-bold text-red-700">
+                              ₹{dashboardData.habit_audit.high_cost_dining.total_amount.toLocaleString('en-IN')}
+                            </p>
+                            <p className="text-xs text-red-600">
+                              {dashboardData.habit_audit.high_cost_dining.count} instances
+                            </p>
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-700">
+                          {dashboardData.habit_audit.high_cost_dining.description}
+                        </p>
+                      </div>
+
+                      {/* Subscription Analysis */}
+                      <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-semibold text-blue-700">Subscription Analysis</h4>
+                          <div className="text-right">
+                            <p className="font-bold text-blue-700">
+                              ₹{dashboardData.habit_audit.subscription_analysis.monthly_cost.toLocaleString('en-IN')}/mo
+                            </p>
+                            <p className="text-xs text-blue-600">
+                              {dashboardData.habit_audit.subscription_analysis.total_subscriptions} active subscriptions
+                            </p>
+                          </div>
+                        </div>
+                        {dashboardData.habit_audit.subscription_analysis.redundant_subscriptions.length > 0 && (
+                          <div className="mt-2">
+                            <p className="text-sm font-medium text-red-600">Redundant subscriptions found:</p>
+                            <ul className="text-sm text-gray-700 ml-4 mt-1">
+                              {dashboardData.habit_audit.subscription_analysis.redundant_subscriptions.map((sub, idx) => (
+                                <li key={idx}>• {sub}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Cut-Back Opportunities */}
+                      <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <h4 className="font-semibold text-green-700 mb-3">Cut-Back Opportunities</h4>
+                        <div className="space-y-3">
+                          {dashboardData.habit_audit.cut_back_opportunities.map((opp, idx) => (
+                            <div key={idx} className="bg-white p-3 rounded border border-green-300">
+                              <div className="flex justify-between items-start mb-2">
+                                <div>
+                                  <p className="font-semibold text-gray-900">{opp.area}</p>
+                                  <p className="text-xs text-gray-600">
+                                    Current: ₹{opp.current_spend.toLocaleString('en-IN')} →
+                                    Target: ₹{opp.recommended_spend.toLocaleString('en-IN')}
+                                  </p>
+                                </div>
+                                <div className="text-right">
+                                  <p className="font-bold text-green-600">
+                                    Save ₹{opp.potential_savings.toLocaleString('en-IN')}
+                                  </p>
+                                </div>
+                              </div>
+                              <p className="text-sm text-gray-700 bg-green-50 p-2 rounded">
+                                {opp.actionable_advice}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -529,21 +698,44 @@ export default function Home() {
                   </CardContent>
                 </Card>
 
-                {/* Insights */}
-                {insights.length > 0 && (
+                {/* Insights & Recommendations */}
+                {(dashboardData.insights.length > 0 || dashboardData.recommendations.length > 0) && (
                   <Card className="border-2 border-[#00bfa5]">
                     <CardHeader>
-                      <CardTitle className="text-[#1a237e]">Insights & Recommendations</CardTitle>
+                      <CardTitle className="text-[#1a237e]">Key Insights & Recommendations</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <ul className="space-y-2">
-                        {insights.map((insight, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <span className="text-[#00bfa5] mt-1">•</span>
-                            <p className="text-sm text-gray-700">{insight}</p>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="space-y-4">
+                        {/* Insights */}
+                        {dashboardData.insights.length > 0 && (
+                          <div>
+                            <h4 className="font-semibold text-gray-800 mb-2 text-sm">Spending Insights</h4>
+                            <ul className="space-y-2">
+                              {dashboardData.insights.map((insight, idx) => (
+                                <li key={idx} className="flex items-start gap-2 bg-blue-50 p-2 rounded">
+                                  <span className="text-blue-600 mt-1">•</span>
+                                  <p className="text-sm text-gray-700">{insight}</p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+
+                        {/* Recommendations */}
+                        {dashboardData.recommendations.length > 0 && (
+                          <div>
+                            <h4 className="font-semibold text-gray-800 mb-2 text-sm">Action Recommendations</h4>
+                            <ul className="space-y-2">
+                              {dashboardData.recommendations.map((rec, idx) => (
+                                <li key={idx} className="flex items-start gap-2 bg-green-50 p-2 rounded">
+                                  <span className="text-green-600 mt-1">→</span>
+                                  <p className="text-sm text-gray-700">{rec}</p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
                     </CardContent>
                   </Card>
                 )}

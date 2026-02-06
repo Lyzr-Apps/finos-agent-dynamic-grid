@@ -1,9 +1,9 @@
 {
   "agent_name": "Strategist Agent",
   "agent_id": "6985a6ea705117394b71196a",
-  "test_message": "Cleaned transactions: [{'date': '2025-01-12', 'merchant': 'Swiggy', 'amount': 450}, {'date': '2025-01-15', 'merchant': 'Amazon', 'amount': 2500}, {'date': '2025-01-18', 'merchant': 'Uber', 'amount': 800}, {'date': '2025-01-20', 'merchant': 'DMart Grocery', 'amount': 3500}, {'date': '2025-01-22', 'merchant': 'SIP Mutual Fund', 'amount': 5000}]",
-  "expected_purpose": "categorization_and_scoring",
-  "timestamp": "2026-02-06T08:33:55.076786",
+  "test_message": "Analyze these cleaned transactions: [{'date': '2025-01-05', 'merchant': 'Swiggy', 'amount': 450}, {'date': '2025-01-06', 'merchant': 'Zomato', 'amount': 380}, {'date': '2025-01-07', 'merchant': 'Amazon', 'amount': 2500}, {'date': '2025-01-08', 'merchant': 'Uber', 'amount': 250}, {'date': '2025-01-09', 'merchant': 'Netflix', 'amount': 199}, {'date': '2025-01-10', 'merchant': 'Flipkart', 'amount': 1200}, {'date': '2025-01-11', 'merchant': 'Starbucks', 'amount': 320}, {'date': '2025-01-12', 'merchant': 'Big Bazaar', 'amount': 3500}, {'date': '2025-01-13', 'merchant': 'Zomato', 'amount': 420}, {'date': '2025-01-14', 'merchant': 'Myntra', 'amount': 890}, {'date': '2025-01-15', 'merchant': 'Ola', 'amount': 180}, {'date': '2025-01-16', 'merchant': 'Swiggy', 'amount': 520}, {'date': '2025-01-17', 'merchant': 'SIP HDFC', 'amount': 5000}, {'date': '2025-01-18', 'merchant': 'Amazon Prime', 'amount': 299}, {'date': '2025-01-19', 'merchant': 'Zomato', 'amount': 650}, {'date': '2025-01-20', 'merchant': 'BookMyShow', 'amount': 450}, {'date': '2025-01-21', 'merchant': 'Amazon', 'amount': 780}, {'date': '2025-01-22', 'merchant': 'DMart', 'amount': 2100}]. Provide granular categorization, merchant breakdown, and habit audit.",
+  "expected_purpose": "Advanced financial analysis with granular categories, merchant patterns, and behavioral insights",
+  "timestamp": "2026-02-06T08:45:39.965468",
   "is_valid_json": true,
   "validation_errors": [],
   "actual_response": {
@@ -11,68 +11,324 @@
     "result": {
       "categorized_transactions": [
         {
-          "date": "2025-01-12",
+          "date": "2025-01-05",
           "merchant": "Swiggy",
           "amount": 450,
-          "category": "Lifestyle",
-          "subcategory": "Dining Out"
+          "category": "Dining",
+          "subcategory": "Food Delivery"
+        },
+        {
+          "date": "2025-01-06",
+          "merchant": "Zomato",
+          "amount": 380,
+          "category": "Dining",
+          "subcategory": "Food Delivery"
+        },
+        {
+          "date": "2025-01-07",
+          "merchant": "Amazon",
+          "amount": 2500,
+          "category": "Shopping",
+          "subcategory": "E-commerce"
+        },
+        {
+          "date": "2025-01-08",
+          "merchant": "Uber",
+          "amount": 250,
+          "category": "Travel",
+          "subcategory": "Transport"
+        },
+        {
+          "date": "2025-01-09",
+          "merchant": "Netflix",
+          "amount": 199,
+          "category": "Bill Payments",
+          "subcategory": "Subscription"
+        },
+        {
+          "date": "2025-01-10",
+          "merchant": "Flipkart",
+          "amount": 1200,
+          "category": "Shopping",
+          "subcategory": "E-commerce"
+        },
+        {
+          "date": "2025-01-11",
+          "merchant": "Starbucks",
+          "amount": 320,
+          "category": "Dining",
+          "subcategory": "Cafe"
+        },
+        {
+          "date": "2025-01-12",
+          "merchant": "Big Bazaar",
+          "amount": 3500,
+          "category": "Shopping",
+          "subcategory": "Retail"
+        },
+        {
+          "date": "2025-01-13",
+          "merchant": "Zomato",
+          "amount": 420,
+          "category": "Dining",
+          "subcategory": "Food Delivery"
+        },
+        {
+          "date": "2025-01-14",
+          "merchant": "Myntra",
+          "amount": 890,
+          "category": "Shopping",
+          "subcategory": "Clothing"
         },
         {
           "date": "2025-01-15",
-          "merchant": "Amazon",
-          "amount": 2500,
-          "category": "Lifestyle",
-          "subcategory": "Shopping"
+          "merchant": "Ola",
+          "amount": 180,
+          "category": "Travel",
+          "subcategory": "Transport"
+        },
+        {
+          "date": "2025-01-16",
+          "merchant": "Swiggy",
+          "amount": 520,
+          "category": "Dining",
+          "subcategory": "Food Delivery"
+        },
+        {
+          "date": "2025-01-17",
+          "merchant": "SIP HDFC",
+          "amount": 5000,
+          "category": "Investments",
+          "subcategory": "Mutual Fund SIP"
         },
         {
           "date": "2025-01-18",
-          "merchant": "Uber",
-          "amount": 800,
-          "category": "Survival",
-          "subcategory": "Transportation"
+          "merchant": "Amazon Prime",
+          "amount": 299,
+          "category": "Bill Payments",
+          "subcategory": "Subscription"
+        },
+        {
+          "date": "2025-01-19",
+          "merchant": "Zomato",
+          "amount": 650,
+          "category": "Dining",
+          "subcategory": "Food Delivery"
         },
         {
           "date": "2025-01-20",
-          "merchant": "DMart Grocery",
-          "amount": 3500,
-          "category": "Survival",
-          "subcategory": "Groceries"
+          "merchant": "BookMyShow",
+          "amount": 450,
+          "category": "Others",
+          "subcategory": "Entertainment"
+        },
+        {
+          "date": "2025-01-21",
+          "merchant": "Amazon",
+          "amount": 780,
+          "category": "Shopping",
+          "subcategory": "E-commerce"
         },
         {
           "date": "2025-01-22",
-          "merchant": "SIP Mutual Fund",
-          "amount": 5000,
-          "category": "Future",
-          "subcategory": "Investments"
+          "merchant": "DMart",
+          "amount": 2100,
+          "category": "Shopping",
+          "subcategory": "Retail"
         }
       ],
       "category_breakdown": {
-        "survival": {
-          "total_amount": 4300,
-          "percentage": 33.59,
+        "dining": {
+          "total_amount": 2440,
+          "percentage": 14.43,
+          "transaction_count": 6
+        },
+        "shopping": {
+          "total_amount": 10970,
+          "percentage": 64.86,
+          "transaction_count": 5
+        },
+        "bill_payments": {
+          "total_amount": 498,
+          "percentage": 2.94,
           "transaction_count": 2
         },
-        "lifestyle": {
-          "total_amount": 2950,
-          "percentage": 23.03,
+        "travel": {
+          "total_amount": 430,
+          "percentage": 2.54,
           "transaction_count": 2
         },
-        "future": {
+        "investments": {
           "total_amount": 5000,
-          "percentage": 39.06,
+          "percentage": 29.55,
+          "transaction_count": 1
+        },
+        "others": {
+          "total_amount": 450,
+          "percentage": 2.66,
           "transaction_count": 1
         }
       },
-      "financial_alignment_score": 87,
+      "merchant_breakdown": [
+        {
+          "merchant": "Swiggy",
+          "category": "Dining",
+          "total_amount": 970,
+          "transaction_count": 2,
+          "percentage_of_category": 39.75,
+          "insights": "Swiggy makes up nearly 40% of your food delivery spend, indicating it is your preferred food delivery platform."
+        },
+        {
+          "merchant": "Zomato",
+          "category": "Dining",
+          "total_amount": 1450,
+          "transaction_count": 3,
+          "percentage_of_category": 59.43,
+          "insights": "Zomato is your top dining merchant, accounting for almost 60% of your food delivery spending."
+        },
+        {
+          "merchant": "Starbucks",
+          "category": "Dining",
+          "total_amount": 320,
+          "transaction_count": 1,
+          "percentage_of_category": 13.11,
+          "insights": "Starbucks represents a significant cafe visit within your dining spending."
+        },
+        {
+          "merchant": "Amazon",
+          "category": "Shopping",
+          "total_amount": 3280,
+          "transaction_count": 2,
+          "percentage_of_category": 29.89,
+          "insights": "Amazon is your largest online shopping merchant, contributing to almost 30% of your shopping category."
+        },
+        {
+          "merchant": "Flipkart",
+          "category": "Shopping",
+          "total_amount": 1200,
+          "transaction_count": 1,
+          "percentage_of_category": 10.94,
+          "insights": "Flipkart is used for a notable one-time ecommerce purchase."
+        },
+        {
+          "merchant": "Big Bazaar",
+          "category": "Shopping",
+          "total_amount": 3500,
+          "transaction_count": 1,
+          "percentage_of_category": 31.9,
+          "insights": "Big Bazaar is your highest single retail spend\u2014more than any other shopping merchant."
+        },
+        {
+          "merchant": "Myntra",
+          "category": "Shopping",
+          "total_amount": 890,
+          "transaction_count": 1,
+          "percentage_of_category": 8.11,
+          "insights": "Myntra used for specific apparel shopping."
+        },
+        {
+          "merchant": "DMart",
+          "category": "Shopping",
+          "total_amount": 2100,
+          "transaction_count": 1,
+          "percentage_of_category": 19.15,
+          "insights": "DMart accounts for a significant portion of your shopping spend, likely groceries/essentials."
+        },
+        {
+          "merchant": "Netflix",
+          "category": "Bill Payments",
+          "total_amount": 199,
+          "transaction_count": 1,
+          "percentage_of_category": 39.96,
+          "insights": "Netflix is your primary streaming subscription."
+        },
+        {
+          "merchant": "Amazon Prime",
+          "category": "Bill Payments",
+          "total_amount": 299,
+          "transaction_count": 1,
+          "percentage_of_category": 60.04,
+          "insights": "Amazon Prime is your higher-cost media subscription."
+        },
+        {
+          "merchant": "Uber",
+          "category": "Travel",
+          "total_amount": 250,
+          "transaction_count": 1,
+          "percentage_of_category": 58.14,
+          "insights": "Uber is your most used transport provider."
+        },
+        {
+          "merchant": "Ola",
+          "category": "Travel",
+          "total_amount": 180,
+          "transaction_count": 1,
+          "percentage_of_category": 41.86,
+          "insights": "Ola is used as an alternative for transport."
+        },
+        {
+          "merchant": "SIP HDFC",
+          "category": "Investments",
+          "total_amount": 5000,
+          "transaction_count": 1,
+          "percentage_of_category": 100,
+          "insights": "Single large SIP investment reflects a healthy commitment to long-term savings."
+        },
+        {
+          "merchant": "BookMyShow",
+          "category": "Others",
+          "total_amount": 450,
+          "transaction_count": 1,
+          "percentage_of_category": 100,
+          "insights": "Entertainment spend is limited, indicating discretionary use."
+        }
+      ],
+      "habit_audit": {
+        "impulsive_purchases": {
+          "count": 8,
+          "total_amount": 3199,
+          "description": "8 purchases under \u20b9500 (Swiggy, Zomato, Starbucks, Uber, Ola, Netflix, BookMyShow, Amazon Prime) indicate a pattern of frequent small spends."
+        },
+        "high_cost_dining": {
+          "count": 1,
+          "total_amount": 650,
+          "description": "You had 1 dining transaction over \u20b9500 (Zomato \u20b9650), pointing to occasional high-value orders."
+        },
+        "subscription_analysis": {
+          "total_subscriptions": 2,
+          "monthly_cost": 498,
+          "redundant_subscriptions": [],
+          "description": "Netflix and Amazon Prime are active; no clear redundant subscriptions."
+        },
+        "cut_back_opportunities": [
+          {
+            "area": "Shopping",
+            "current_spend": 10970,
+            "recommended_spend": 9000,
+            "potential_savings": 1970,
+            "actionable_advice": "Reduce discretionary shopping by 18%\u2014limit large retail and apparel purchases next month."
+          },
+          {
+            "area": "Impulsive purchases",
+            "current_spend": 3199,
+            "recommended_spend": 2000,
+            "potential_savings": 1199,
+            "actionable_advice": "Curb spontaneous small-ticket spending; set daily spend limits."
+          }
+        ]
+      },
+      "financial_alignment_score": 85,
       "insights": [
-        "Your spending is relatively well balanced, with a healthy focus on future investments (39.06%).",
-        "Survival expenses are slightly below the ideal 50%, which may indicate efficient management or lower essential costs this month.",
-        "Lifestyle spending accounts for about 23% of your total expenditures, just above the ideal allocation."
+        "Shopping forms the largest share (64.86%) of your expenses, driven by high-value purchases at Big Bazaar and Amazon.",
+        "Your investment (SIP HDFC) is strong at 29.6% of your expenses, positively impacting your long-term goals.",
+        "Dining is moderate at 14.4%, with most food orders under \u20b9500, showing restraint but a trend towards frequent delivery.",
+        "Your subscription payments are streamlined (Netflix, Amazon Prime) with no redundant services."
       ],
       "recommendations": [
-        "Maintain or gradually increase your contributions to the Future category to keep securing your long-term financial health.",
-        "Evaluate if any Lifestyle expenses can be reduced or optimized, especially discretionary shopping.",
-        "Regularly review your Survival expenses to ensure all essentials are adequately covered without excess spending."
+        "Target a reduction in shopping expenses by prioritizing essential purchases\u2014avoid large retail spends unless necessary.",
+        "Reduce the frequency of impulsive small-ticket purchases by setting app-specific limits or cash envelopes for food delivery and entertainment.",
+        "Maintain/increase your SIP investment rate as it aligns with healthy financial planning.",
+        "Monitor monthly subscription costs and periodically reassess necessity."
       ]
     },
     "metadata": {
@@ -80,5 +336,5 @@
       "timestamp": "2025-01-22T10:00:00Z"
     }
   },
-  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"categorized_transactions\": [\n      {\n        \"date\": \"2025-01-12\",\n        \"merchant\": \"Swiggy\",\n        \"amount\": 450,\n        \"category\": \"Lifestyle\",\n        \"subcategory\": \"Dining Out\"\n      },\n      {\n        \"date\": \"2025-01-15\",\n        \"merchant\": \"Amazon\",\n        \"amount\": 2500,\n        \"category\": \"Lifestyle\",\n        \"subcategory\": \"Shopping\"\n      },\n      {\n        \"date\": \"2025-01-18\",\n        \"merchant\": \"Uber\",\n        \"amount\": 800,\n        \"category\": \"Survival\",\n        \"subcategory\": \"Transportation\"\n      },\n      {\n        \"date\": \"2025-01-20\",\n        \"merchant\": \"DMart Grocery\",\n        \"amount\": 3500,\n        \"category\": \"Survival\",\n        \"subcategory\": \"Groceries\"\n      },\n      {\n        \"date\": \"2025-01-22\",\n        \"merchant\": \"SIP Mutual Fund\",\n        \"amount\": 5000,\n        \"category\": \"Future\",\n        \"subcategory\": \"Investments\"\n      }\n    ],\n    \"category_breakdown\": {\n      \"survival\": {\n        \"total_amount\": 4300,\n        \"percentage\": 33.59,\n        \"transaction_count\": 2\n      },\n      \"lifestyle\": {\n        \"total_amount\": 2950,\n        \"percentage\": 23.03,\n        \"transaction_count\": 2\n      },\n      \"future\": {\n        \"total_amount\": 5000,\n        \"percentage\": 39.06,\n        \"transaction_count\": 1\n      }\n    },\n    \"financial_alignment_score\": 87,\n    \"insights\": [\n      \"Your spending is relatively well balanced, with a healthy focus on future investments (39.06%).\",\n      \"Survival expenses are slightly below the ideal 50%, which may indicate efficient management or lower essential costs this month.\",\n      \"Lifestyle spending accounts for about 23% of your total expenditures, just above the ideal allocation.\"\n    ],\n    \"recommendations\": [\n      \"Maintain or gradually increase your contributions to the Future category to keep securing your long-term financial health.\",\n      \"Evaluate if any Lifestyle expenses can be reduced or optimized, especially discretionary shopping.\",\n      \"Regularly review your Survival expenses to ensure all essentials are adequately covered without excess spending.\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"Strategist Agent\",\n    \"timestamp\": \"2025-01-22T10:00:00Z\"\n  }\n}"
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"categorized_transactions\": [\n      {\n        \"date\": \"2025-01-05\",\n        \"merchant\": \"Swiggy\",\n        \"amount\": 450,\n        \"category\": \"Dining\",\n        \"subcategory\": \"Food Delivery\"\n      },\n      {\n        \"date\": \"2025-01-06\",\n        \"merchant\": \"Zomato\",\n        \"amount\": 380,\n        \"category\": \"Dining\",\n        \"subcategory\": \"Food Delivery\"\n      },\n      {\n        \"date\": \"2025-01-07\",\n        \"merchant\": \"Amazon\",\n        \"amount\": 2500,\n        \"category\": \"Shopping\",\n        \"subcategory\": \"E-commerce\"\n      },\n      {\n        \"date\": \"2025-01-08\",\n        \"merchant\": \"Uber\",\n        \"amount\": 250,\n        \"category\": \"Travel\",\n        \"subcategory\": \"Transport\"\n      },\n      {\n        \"date\": \"2025-01-09\",\n        \"merchant\": \"Netflix\",\n        \"amount\": 199,\n        \"category\": \"Bill Payments\",\n        \"subcategory\": \"Subscription\"\n      },\n      {\n        \"date\": \"2025-01-10\",\n        \"merchant\": \"Flipkart\",\n        \"amount\": 1200,\n        \"category\": \"Shopping\",\n        \"subcategory\": \"E-commerce\"\n      },\n      {\n        \"date\": \"2025-01-11\",\n        \"merchant\": \"Starbucks\",\n        \"amount\": 320,\n        \"category\": \"Dining\",\n        \"subcategory\": \"Cafe\"\n      },\n      {\n        \"date\": \"2025-01-12\",\n        \"merchant\": \"Big Bazaar\",\n        \"amount\": 3500,\n        \"category\": \"Shopping\",\n        \"subcategory\": \"Retail\"\n      },\n      {\n        \"date\": \"2025-01-13\",\n        \"merchant\": \"Zomato\",\n        \"amount\": 420,\n        \"category\": \"Dining\",\n        \"subcategory\": \"Food Delivery\"\n      },\n      {\n        \"date\": \"2025-01-14\",\n        \"merchant\": \"Myntra\",\n        \"amount\": 890,\n        \"category\": \"Shopping\",\n        \"subcategory\": \"Clothing\"\n      },\n      {\n        \"date\": \"2025-01-15\",\n        \"merchant\": \"Ola\",\n        \"amount\": 180,\n        \"category\": \"Travel\",\n        \"subcategory\": \"Transport\"\n      },\n      {\n        \"date\": \"2025-01-16\",\n        \"merchant\": \"Swiggy\",\n        \"amount\": 520,\n        \"category\": \"Dining\",\n        \"subcategory\": \"Food Delivery\"\n      },\n      {\n        \"date\": \"2025-01-17\",\n        \"merchant\": \"SIP HDFC\",\n        \"amount\": 5000,\n        \"category\": \"Investments\",\n        \"subcategory\": \"Mutual Fund SIP\"\n      },\n      {\n        \"date\": \"2025-01-18\",\n        \"merchant\": \"Amazon Prime\",\n        \"amount\": 299,\n        \"category\": \"Bill Payments\",\n        \"subcategory\": \"Subscription\"\n      },\n      {\n        \"date\": \"2025-01-19\",\n        \"merchant\": \"Zomato\",\n        \"amount\": 650,\n        \"category\": \"Dining\",\n        \"subcategory\": \"Food Delivery\"\n      },\n      {\n        \"date\": \"2025-01-20\",\n        \"merchant\": \"BookMyShow\",\n        \"amount\": 450,\n        \"category\": \"Others\",\n        \"subcategory\": \"Entertainment\"\n      },\n      {\n        \"date\": \"2025-01-21\",\n        \"merchant\": \"Amazon\",\n        \"amount\": 780,\n        \"category\": \"Shopping\",\n        \"subcategory\": \"E-commerce\"\n      },\n      {\n        \"date\": \"2025-01-22\",\n        \"merchant\": \"DMart\",\n        \"amount\": 2100,\n        \"category\": \"Shopping\",\n        \"subcategory\": \"Retail\"\n      }\n    ],\n    \"category_breakdown\": {\n      \"dining\": {\n        \"total_amount\": 2440,\n        \"percentage\": 14.43,\n        \"transaction_count\": 6\n      },\n      \"shopping\": {\n        \"total_amount\": 10970,\n        \"percentage\": 64.86,\n        \"transaction_count\": 5\n      },\n      \"bill_payments\": {\n        \"total_amount\": 498,\n        \"percentage\": 2.94,\n        \"transaction_count\": 2\n      },\n      \"travel\": {\n        \"total_amount\": 430,\n        \"percentage\": 2.54,\n        \"transaction_count\": 2\n      },\n      \"investments\": {\n        \"total_amount\": 5000,\n        \"percentage\": 29.55,\n        \"transaction_count\": 1\n      },\n      \"others\": {\n        \"total_amount\": 450,\n        \"percentage\": 2.66,\n        \"transaction_count\": 1\n      }\n    },\n    \"merchant_breakdown\": [\n      {\n        \"merchant\": \"Swiggy\",\n        \"category\": \"Dining\",\n        \"total_amount\": 970,\n        \"transaction_count\": 2,\n        \"percentage_of_category\": 39.75,\n        \"insights\": \"Swiggy makes up nearly 40% of your food delivery spend, indicating it is your preferred food delivery platform.\"\n      },\n      {\n        \"merchant\": \"Zomato\",\n        \"category\": \"Dining\",\n        \"total_amount\": 1450,\n        \"transaction_count\": 3,\n        \"percentage_of_category\": 59.43,\n        \"insights\": \"Zomato is your top dining merchant, accounting for almost 60% of your food delivery spending.\"\n      },\n      {\n        \"merchant\": \"Starbucks\",\n        \"category\": \"Dining\",\n        \"total_amount\": 320,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 13.11,\n        \"insights\": \"Starbucks represents a significant cafe visit within your dining spending.\"\n      },\n      {\n        \"merchant\": \"Amazon\",\n        \"category\": \"Shopping\",\n        \"total_amount\": 3280,\n        \"transaction_count\": 2,\n        \"percentage_of_category\": 29.89,\n        \"insights\": \"Amazon is your largest online shopping merchant, contributing to almost 30% of your shopping category.\"\n      },\n      {\n        \"merchant\": \"Flipkart\",\n        \"category\": \"Shopping\",\n        \"total_amount\": 1200,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 10.94,\n        \"insights\": \"Flipkart is used for a notable one-time ecommerce purchase.\"\n      },\n      {\n        \"merchant\": \"Big Bazaar\",\n        \"category\": \"Shopping\",\n        \"total_amount\": 3500,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 31.90,\n        \"insights\": \"Big Bazaar is your highest single retail spend\u2014more than any other shopping merchant.\"\n      },\n      {\n        \"merchant\": \"Myntra\",\n        \"category\": \"Shopping\",\n        \"total_amount\": 890,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 8.11,\n        \"insights\": \"Myntra used for specific apparel shopping.\"\n      },\n      {\n        \"merchant\": \"DMart\",\n        \"category\": \"Shopping\",\n        \"total_amount\": 2100,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 19.15,\n        \"insights\": \"DMart accounts for a significant portion of your shopping spend, likely groceries/essentials.\"\n      },\n      {\n        \"merchant\": \"Netflix\",\n        \"category\": \"Bill Payments\",\n        \"total_amount\": 199,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 39.96,\n        \"insights\": \"Netflix is your primary streaming subscription.\"\n      },\n      {\n        \"merchant\": \"Amazon Prime\",\n        \"category\": \"Bill Payments\",\n        \"total_amount\": 299,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 60.04,\n        \"insights\": \"Amazon Prime is your higher-cost media subscription.\"\n      },\n      {\n        \"merchant\": \"Uber\",\n        \"category\": \"Travel\",\n        \"total_amount\": 250,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 58.14,\n        \"insights\": \"Uber is your most used transport provider.\"\n      },\n      {\n        \"merchant\": \"Ola\",\n        \"category\": \"Travel\",\n        \"total_amount\": 180,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 41.86,\n        \"insights\": \"Ola is used as an alternative for transport.\"\n      },\n      {\n        \"merchant\": \"SIP HDFC\",\n        \"category\": \"Investments\",\n        \"total_amount\": 5000,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 100,\n        \"insights\": \"Single large SIP investment reflects a healthy commitment to long-term savings.\"\n      },\n      {\n        \"merchant\": \"BookMyShow\",\n        \"category\": \"Others\",\n        \"total_amount\": 450,\n        \"transaction_count\": 1,\n        \"percentage_of_category\": 100,\n        \"insights\": \"Entertainment spend is limited, indicating discretionary use.\"\n      }\n    ],\n    \"habit_audit\": {\n      \"impulsive_purchases\": {\n        \"count\": 8,\n        \"total_amount\": 3199,\n        \"description\": \"8 purchases under \u20b9500 (Swiggy, Zomato, Starbucks, Uber, Ola, Netflix, BookMyShow, Amazon Prime) indicate a pattern of frequent small spends.\"\n      },\n      \"high_cost_dining\": {\n        \"count\": 1,\n        \"total_amount\": 650,\n        \"description\": \"You had 1 dining transaction over \u20b9500 (Zomato \u20b9650), pointing to occasional high-value orders.\"\n      },\n      \"subscription_analysis\": {\n        \"total_subscriptions\": 2,\n        \"monthly_cost\": 498,\n        \"redundant_subscriptions\": [],\n        \"description\": \"Netflix and Amazon Prime are active; no clear redundant subscriptions.\"\n      },\n      \"cut_back_opportunities\": [\n        {\n          \"area\": \"Shopping\",\n          \"current_spend\": 10970,\n          \"recommended_spend\": 9000,\n          \"potential_savings\": 1970,\n          \"actionable_advice\": \"Reduce discretionary shopping by 18%\u2014limit large retail and apparel purchases next month.\"\n        },\n        {\n          \"area\": \"Impulsive purchases\",\n          \"current_spend\": 3199,\n          \"recommended_spend\": 2000,\n          \"potential_savings\": 1199,\n          \"actionable_advice\": \"Curb spontaneous small-ticket spending; set daily spend limits.\"\n        }\n      ]\n    },\n    \"financial_alignment_score\": 85,\n    \"insights\": [\n      \"Shopping forms the largest share (64.86%) of your expenses, driven by high-value purchases at Big Bazaar and Amazon.\",\n      \"Your investment (SIP HDFC) is strong at 29.6% of your expenses, positively impacting your long-term goals.\",\n      \"Dining is moderate at 14.4%, with most food orders under \u20b9500, showing restraint but a trend towards frequent delivery.\",\n      \"Your subscription payments are streamlined (Netflix, Amazon Prime) with no redundant services.\"\n    ],\n    \"recommendations\": [\n      \"Target a reduction in shopping expenses by prioritizing essential purchases\u2014avoid large retail spends unless necessary.\",\n      \"Reduce the frequency of impulsive small-ticket purchases by setting app-specific limits or cash envelopes for food delivery and entertainment.\",\n      \"Maintain/increase your SIP investment rate as it aligns with healthy financial planning.\",\n      \"Monitor monthly subscription costs and periodically reassess necessity.\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"Strategist Agent\",\n    \"timestamp\": \"2025-01-22T10:00:00Z\"\n  }\n}"
 }
